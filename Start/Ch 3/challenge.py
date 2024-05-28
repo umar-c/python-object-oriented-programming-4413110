@@ -23,6 +23,15 @@ class Stock(Asset):
         self.company = company
         self.ticker = ticker
 
+    def __str__(self):
+        return f'{self.ticker}: {self.company} -- ${self.price}'
+
+    def __gt__(self, value):
+        if not isinstance(value, Stock):
+            raise TypeError("Oops, can't copmare an object of type Stock to a non-Stock object!!")
+        
+        return (self.price > value.price)
+
 
 class Bond(Asset):
     def __init__(self, price, description, duration, yieldamt):
@@ -30,6 +39,15 @@ class Bond(Asset):
         self.description = description
         self.duration = duration
         self.yieldamt = yieldamt
+
+    def __str__(self):
+        return f'{self.description}: {self.duration}yr : ${self.price} : ${self.yieldamt}%'
+    
+    def __gt__(self, value):
+        if not isinstance(value, Bond):
+            raise TypeError("Oops, can't copmare an object of type Bond to a non-Bond object!!")
+        
+        return (self.yieldamt > value.yieldamt)
 
 
 # ~~~~~~~~~ TEST CODE ~~~~~~~~~

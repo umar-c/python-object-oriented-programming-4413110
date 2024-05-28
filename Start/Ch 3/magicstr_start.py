@@ -10,12 +10,24 @@ class Book:
         self.price = price
 
     # TODO: use the __str__ method to return a string
+    def __str__(self):
+        return f'{self.title} by {self.author} costs ${self.price}.'
 
     # TODO: use the __repr__ method to return an obj representation
-
+    def __repr__(self) -> str:
+        return f'Title = {self.title}, Author = {self.author}, Price = ${self.price}'
 
 b1 = Book("War and Peace", "Leo Tolstoy", 39.95)
 b2 = Book("The Catcher in the Rye", "JD Salinger", 29.95)
 
+print('Calling print directly on the Book objects:')
 print(b1)
 print(b2)
+
+print('\nCalling the overloaded str() fucntion to print the Book objects:')
+print(str(b1))
+print(str(b2))
+
+print('\nCalling the overloaded repr() fucntion to print the Book objects:')
+print(repr(b1))
+print(repr(b2))
