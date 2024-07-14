@@ -16,7 +16,7 @@ class B:
         self.name = "Class B"
 
 
-class C(B, A):
+class C(A, B):
     def __init__(self):
         super().__init__()
 

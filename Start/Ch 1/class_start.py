@@ -16,10 +16,10 @@ class Book:
 
     # TODO: create a static method
     def getBookList():
-        if Book.__booklist == None:
+        if Book.__booklist is None:
             Book.__booklist = []
-        else:
-            return Book.__booklist
+            
+        return Book.__booklist
 
     # instance methods receive a specific object instance as an argument
     # and operate on data specific to that object instance
@@ -45,6 +45,7 @@ b2 = Book("Second Book", "EBOOK")
 theBooks = Book.getBookList()
 print(theBooks)
 
+# Backdoor to access the secret properties
 theBooks = b1._Book__booklist
 print(theBooks)
 
